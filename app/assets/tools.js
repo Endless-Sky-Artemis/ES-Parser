@@ -330,7 +330,7 @@ PARSERTOOLS.averages.weapon = weapon => {
 		if (submunition.includes(' ')) {
 			submunition = submunition.split(' ');
 			if (isNaN(submunition[submunition.length -1])) {
-				converge(new Map(PARSERTOOLS.averages.outfit(submunition).join(' ')));
+				converge(new Map(PARSERTOOLS.averages.outfit(submunition.join(' '))));
 			} else {
 				let i = parseFloat(submunition[submunition.length - 1]);
 				submunition = new Map(PARSERTOOLS.averages.outfit(submunition.slice(0, submunition.length - 1).join(' ')));
