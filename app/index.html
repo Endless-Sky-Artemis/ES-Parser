@@ -1,0 +1,183 @@
+
+<!-- 
+MIT License
+
+Copyright (c) 2018 Neutralinojs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NeutralinoJs</title>
+    <link rel="stylesheet" href="/assets/app.css">
+  </head>
+  <body>
+    <div id="neutralinoapp">
+		<nav>
+			<button onclick="PARSERUI.ui.switchModes('#compareUI', '#searchUI'); PARSERUI.ui.switchActive(`nav button[name='Compare']`, `nav button[name='Search']`);" class="active" name="Search">Search</button>
+			<button name="Compare">Compare</button>
+		</nav>
+		<div id="searchUI">
+			<textarea id="parsersearch" placeholder="Enter a keyword and press enter" disabled></textarea>
+			<pre id="parserdata"></pre>
+		</div>
+		<div id="compareUI">
+			<h1>Compare</h1>
+			<div class="criteria">
+				<div class="categories">
+					<div class="headerbox">
+						<h3>Categories</h3>
+						<div class="buttons">
+							<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .checklist.outfits .checkitem input'); PARSERUI.ui.switchModes('#neutralinoapp #compareUI .outfits', '#neutralinoapp #compareUI .ships'); PARSERUI.ui.switchActive(`#compareUI button[name='outfits']`, `#compareUI button[name='ships']`); PARSERUI.ui.compare = 'ship';" class="active" name="ships" value="ships">Ships</button>
+							<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .checklist.ships .checkitem input'); PARSERUI.ui.switchModes('#neutralinoapp #compareUI .ships', '#neutralinoapp #compareUI .outfits'); PARSERUI.ui.switchActive(`#compareUI button[name='ships']`, `#compareUI button[name='outfits']`); PARSERUI.ui.compare = 'outfit';" name="outfits" value="outfits">Outfits</button>
+							|
+							<div class="seperator ships">
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .categories .checklist.ships .checkitem input', true);" name="select all" value="all">Select All</button>
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .categories .checklist.ships .checkitem input');" name="select none" value="none">Select None</button>
+							</div>
+							<div class="seperator outfits">
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .categories .checklist.outfits .checkitem input', true);" name="select all" value="all">Select All</button>
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI .categories .checklist.outfits .checkitem input');" name="select none" value="none">Select None</button>
+							</div>
+						</div>
+					</div>
+					<div class="checklist ships">
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Drone']`);" type="checkbox" name="Drone" value="Drone">
+							<span>Drone</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Fighter']`);" type="checkbox" name="Fighter" value="Fighter">
+							<span>Fighter</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Interceptor']`);" type="checkbox" name="Interceptor" value="Interceptor">
+							<span>Interceptor</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Transport']`);" type="checkbox" name="Transport" value="Transport">
+							<span>Transport</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Light Freighter']`);" type="checkbox" name="Light Freighter" value="Light Freighter">
+							<span>Light Freighter</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Heavy Freighter']`);" type="checkbox" name="Heavy Freighter" value="Heavy Freighter">
+							<span>Heavy Freighter</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Light Warship']`);" type="checkbox" name="Light Warship" value="Light Warship">
+							<span>Light Warship</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Medium Warship']`);" type="checkbox" name="Medium Warship" value="Medium Warship">
+							<span>Medium Warship</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .ships div[data-category='Heavy Warship']`);" type="checkbox" name="Heavy Warship" value="Heavy Warship">
+							<span>Heavy Warship</span>
+						</div>
+					</div>
+					<div class="checklist outfits">
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Guns']`);" type="checkbox" name="Guns" value="Guns">
+							<span>Guns</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Turrets']`);" type="checkbox" name="Turrets" value="Turrets">
+							<span>Turrets</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Secondary Weapons']`);" type="checkbox" name="Secondary Weapons" value="Secondary Weapons">
+							<span>Secondary Weapons</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Ammunition']`);" type="checkbox" name="Ammunition" value="Ammunition">
+							<span>Ammunition</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Systems']`);" type="checkbox" name="Systems" value="Systems">
+							<span>Systems</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Power']`);" type="checkbox" name="Power" value="Power">
+							<span>Power</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Engines']`);" type="checkbox" name="Engines" value="Engines">
+							<span>Engines</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Hand to Hand']`);" type="checkbox" name="Hand to Hand" value="Hand to Hand">
+							<span>Hand to Hand</span>
+						</div>
+						<div class="checkitem">
+							<input onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input'); PARSERUI.ui.showChecked(`#neutralinoapp #compareUI .outfits div[data-category='Special']`);" type="checkbox" name="Special" value="Special">
+							<span>Special</span>
+						</div>
+					</div>
+				</div>
+				<div id="items">
+					<div class="headerbox">
+						<h3 class="ships">Ships</h3>
+						<h3 class="outfits">Outfits</h3>
+						<div class="buttons">
+							<div class="seperator ships">
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input', true);" name="select all" value="all">Select All</button>
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.ships .checkitem input');" name="select none" value="none">Select None</button>
+							</div>
+							<div class="seperator outfits">
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input', true);" name="select all" value="all">Select All</button>
+								<button onclick="PARSERUI.ui.select('#neutralinoapp #compareUI #items .checklist.outfits .checkitem input');" name="select none" value="none">Select None</button>
+							</div>
+						</div>
+					</div>
+					<div class="checklist ships"></div>
+					<div class="checklist outfits"></div>
+				</div>
+				<div id="submissionbox">
+					<select>
+						<option value="1">1 Frame</option>
+						<option value="60">60 FPS</option>
+						<option value="1800">30 Seconds</option>
+					</select>
+					<button onclick="PARSERUI.ui.averagesToggle();" name="averages" value="averages">Averages</button>
+					<button onclick="PARSERUI.ui.submit();" name="submit" value="submit">Submit</button>
+				</div>
+			</div>
+			<div id="result">
+				<button onclick="PARSERUI.ui.switchModes('#result', '.criteria');" name="back" value="back">Back</button>
+				<pre></pre>
+			</div>
+		</div>
+		<footer>
+			<span id="parserlogstatus"></span>
+			<span id="parserlogfiles"></span>
+		</footer>
+	</div>
+	<script src="/neutralino.js"></script>
+	<script src="/assets/ui.js"></script>
+	<script src="/assets/gamedata.js"></script>
+	<script src="/assets/tools.js"></script>
+	<script src="/assets/app.js"></script>
+  </body>
+</html>

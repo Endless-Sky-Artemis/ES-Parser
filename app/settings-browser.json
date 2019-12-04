@@ -1,0 +1,5 @@
+{
+    "appname" : "ES-Parser",
+    "appport" : "8080",
+    "mode" : "browser"
+}
