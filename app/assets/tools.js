@@ -346,9 +346,10 @@ PARSERTOOLS.averages.weapon = weapon => {
 	}
 	stats.forEach((value, stat) => {
 		if (!exclude.includes(stat)) {
-			if (conversions.get('burst reload')) value /= conversions.get('burst reload');
-			if (conversions.get('burst count')) value *= conversions.get('burst count');
-			if (conversions.get('reload')) value /= conversions.get('reload');
+			if (conversions.get('burst reload')) {
+				value *= conversions.get('burst count');
+				value /= conversions.get('reload') * conversions.get('burst count');
+			} else if (conversions.get('reload')) value /= conversions.get('reload');
 			stats.set(stat, value);
 		}
 	});
